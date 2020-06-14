@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>MFEE07_白若穎.html</title>
+    
+</head>
+
+<style>
+    #txt {
+  
+  position: relative;
+  animation: mymove 1s ease-in-out infinite;
+  
+  
+}
+    @keyframes mymove {
+  from {top:200px;}
+  to {top:150px;}
+}
+
+
+</style>
+<body>
+    
+    <div id="txt" onclick="timedText()" ></div>
+    <div id="rope"></div>
+
+    <script>
+        window.onload = function(){
+            alert('！！按一下黃色氣球！！Click the yellow balloonnn');
+            return;}
+        //質數
+        let flag = false;
+        var arr = [];
+        for (let num = 2; num <= 100; num++) {
+            for (let i = 2; i < num; i++) {
+                if (num % i == 0) flag = true;
+            }
+            if (flag == false) {
+                if (num < 10) {
+                    arr.push('0' + num);
+                }
+                else {
+                    arr.push(num);
+                }
+
+                // document.write(`${num}\n`);
+            }
+            else {
+                flag = false;
+                // console.log(`${num}不是質數`)
+            }
+        }
+        console.log(arr);
+
+        var output1 = document.querySelector("#txt");
+        var display1 = s1 => output1.innerText = s1;
+
+        const delayLoop1 = (fn, delay) => {
+            return (arr, i) => {
+                setTimeout(() => {
+                    display1(arr);
+                }, i * 1000);
+            }
+        };
+
+        function timedText() {
+            arr.forEach(delayLoop1(display1, 1000));
+        }
+
+        var sky = document.getElementsByTagName("body");
+
+
+        //style
+        output1.style.backgroundColor = '#F2B705';
+        output1.style.color = 'white';
+        output1.style.fontWeight = '900';
+        output1.style.borderRadius = '50%';
+        output1.style.width = '120px';
+        output1.style.height = '150px';
+        output1.style.fontSize = '100px';
+        output1.style.padding = '15px';
+        output1.style.marginLeft = '50%';
+        output1.style.boxShadow = "10px 30px 30px #F29F05";
+        document.body.style.background = '#7ECEFC';
+        document.getElementById("myDIV").style.animation = "mynewmove 4s 2";
+
+    </script>
+</body>
+
+</html>
